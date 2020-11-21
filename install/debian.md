@@ -39,13 +39,6 @@ sudo timedatectl set-timezone EST
 sudo nano /etc/kibana/kibana.yml
 ```
 
-### 4. Modify host file (/etc/kibana/kibana.yml) (Already done via docker-compose)
-- server.port: 5601
-- server.host: "0.0.0.0"
-
-
-```
-
 ### 3. (Required) Download the following configuration files
 Prerequisite: clone repo
 ```
