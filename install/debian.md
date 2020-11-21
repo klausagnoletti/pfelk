@@ -67,13 +67,13 @@ copy /pfelk/master/etc/logstash/conf.d/45-cleanup.conf ~/logstash/pipeline/
 
 ### 16. Download the grok pattern
 ```
-sudo wget https://raw.githubusercontent.com/3ilson/pfelk/master/etc/logstash/conf.d/patterns/pfelk.grok -P /etc/logstash/conf.d/patterns/
+copy /pfelk/master/etc/logstash/conf.d/patterns/pfelk.grok to ~/logstash/pipeline/patterns/
 ```
 
 ### 17a. (Optional) Download the Database(s)
 ```
-sudo wget https://raw.githubusercontent.com/3ilson/pfelk/master/etc/logstash/conf.d/databases/rule-names.csv -P /etc/logstash/conf.d/databases/
-sudo wget https://raw.githubusercontent.com/3ilson/pfelk/master/etc/logstash/conf.d/databases/service-names-port-numbers.csv -P /etc/logstash/conf.d/databases/
+copy /pfelk/master/etc/logstash/conf.d/databases/rule-names.csv to ~/logstash/pipeline/databases/
+copy /pfelk/master/etc/logstash/conf.d/databases/service-names-port-numbers.csv to ~/logstash/pipeline/databases//
 ```
 
 ### 17b. (Optional) Configure Firewall Rule Database
