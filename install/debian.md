@@ -21,115 +21,48 @@ The box running this configuration will reports firewall logs based on its clock
 sudo timedatectl set-timezone EST
 ```
 
-### 1. Add Prerequisites
+### 1. MaxMind container
 ```
-apt-get install apt-transport-https gnupg2 software-properties-common dirmngr lsb-release ca-certificates
-```
-
-### 2. Download MaxMind
-```
-wget https://github.com/maxmind/geoipupdate/releases/download/v4.3.0/geoipupdate_4.3.0_linux_amd64.deb
+<Insert description of how to set up container>
 ```
 
-### 3. Install MaxMind
+### 2. Install Elastic docker
 ```
-apt install ./geoipupdate_4.3.0_linux_amd64.deb
-```
-
-### 4. Download and install the public GPG signing key
-```
-wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add -
-```
-
-### 5. Add Elasticsearch|Logstash|Kibana Repositories (version 7+)
-```
-echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | tee -a /etc/apt/sources.list.d/elastic-7.x.list
-```
-
-### 6. Update
-```
-apt-get update
-```
-
-### 7. Install Java 14 LTS
-```
-apt install openjdk-14-jre-headless
-```
-
-### 8. Configure MaxMind
-- Create a MaxMind Account @ https://www.maxmind.com/en/geolite2/signup
-- Login to your MaxMind Account; navigate to "My License Key" under "Services" and Generate new license key
-```
-nano /etc/GeoIP.conf
-```
-- Modify lines 7 & 8 as follows (without < >):
-```
-AccountID <Input Your Account ID>
-LicenseKey <Input Your LicenseKey>
-```
-- Modify line 13 as follows:
-```
-EditionIDs GeoLite2-City GeoLite2-Country GeoLite2-ASN
-```
-- Modify line 18 as follows:
-```
-DatabaseDirectory /usr/share/GeoIP/
-```
-
-### 9. Download MaxMind Databases
-```
-sudo geoipupdate 
-```
-
-### 10. Add cron (automatically updates MaxMind everyweek on Sunday at 1700hrs)
-```
-sudo nano /etc/cron.weekly/geoipupdate
-```
-- Add the following and save/exit
-```
-00 17 * * 0 geoipupdate
-```
-
-# Installation
-- Elasticsearch v7+ | Kibana v7+ | Logstash v7+
-
-### 11. Install Elasticsearch|Kibana|Logstash
-```
-apt-get install elasticsearch kibana logstash
+<Insert description of how to set up container>
+<config files should be modified>
 ```
 
 # Configuration
 
-### 12. Configure Kibana
+### 3. Configure Kibana
 ```
 sudo nano /etc/kibana/kibana.yml
 ```
 
-### 13. Modify host file (/etc/kibana/kibana.yml)
+### 4. Modify host file (/etc/kibana/kibana.yml) (Already done via docker-compose)
 - server.port: 5601
 - server.host: "0.0.0.0"
 
-### 14. Create Required Directories
-```
-sudo mkdir /etc/logstash/conf.d/{databases,patterns,templates}
+
 ```
 
-### 15. (Required) Download the following configuration files
+### 3. (Required) Download the following configuration files
+Prerequisite: clone repo
 ```
-sudo wget https://raw.githubusercontent.com/3ilson/pfelk/master/etc/logstash/conf.d/01-inputs.conf -P /etc/logstash/conf.d/
-sudo wget https://raw.githubusercontent.com/3ilson/pfelk/master/etc/logstash/conf.d/02-types.conf -P /etc/logstash/conf.d/
-sudo wget https://raw.githubusercontent.com/3ilson/pfelk/master/etc/logstash/conf.d/03-filter.conf -P /etc/logstash/conf.d/
-sudo wget https://raw.githubusercontent.com/3ilson/pfelk/master/etc/logstash/conf.d/05-firewall.conf -P /etc/logstash/conf.d/
-sudo wget https://raw.githubusercontent.com/3ilson/pfelk/master/etc/logstash/conf.d/10-apps.conf -P /etc/logstash/conf.d/
-sudo wget https://raw.githubusercontent.com/3ilson/pfelk/master/etc/logstash/conf.d/30-geoip.conf -P /etc/logstash/conf.d/
-sudo wget https://raw.githubusercontent.com/3ilson/pfelk/master/etc/logstash/conf.d/50-outputs.conf -P /etc/logstash/conf.d/
+copy /pfelk/master/etc/logstash/conf.d/01-inputs.conf to ~/logstash/pipeline/
+copy /pfelk/master/etc/logstash/conf.d/02-types.conf to ~/logstash/pipeline/
+copy /pfelk/master/etc/logstash/conf.d/03-filter.conf to ~/logstash/pipeline/
+copy /pfelk/master/etc/logstash/conf.d/05-firewall.conf to ~/logstash/pipeline/
+copy /pfelk/master/etc/logstash/conf.d/10-apps.conf to ~/logstash/pipeline/
+copy /pfelk/master/etc/logstash/conf.d/30-geoip.conf to ~/logstash/pipeline/
+copy /pfelk/master/etc/logstash/conf.d/50-outputs.conf -to ~/logstash/pipeline/
 ```
 
 ### 15a. (Optional) Download the following configuration files
 ```
-sudo wget https://raw.githubusercontent.com/3ilson/pfelk/master/etc/logstash/conf.d/35-rules-desc.conf -P /etc/logstash/conf.d/
-sudo wget https://raw.githubusercontent.com/3ilson/pfelk/master/etc/logstash/conf.d/36-ports-desc.conf -P /etc/logstash/conf.d/
-sudo wget https://raw.githubusercontent.com/3ilson/pfelk/master/etc/logstash/conf.d/45-cleanup.conf -P /etc/logstash/conf.d/
+copy /pfelk/master/etc/logstash/conf.d/35-rules-desc.conf ~/logstash/pipeline/
+copy /pfelk/master/etc/logstash/conf.d/36-ports-desc.conf ~/logstash/pipeline/
+copy /pfelk/master/etc/logstash/conf.d/45-cleanup.conf ~/logstash/pipeline/
 ```
 
 ### 16. Download the grok pattern
