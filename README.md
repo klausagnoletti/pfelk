@@ -44,20 +44,21 @@ Supported entries include:
 **pfelk** aims to replace the vanilla pfSense/OPNsense web UI with extended search and visualization features. You can deploy this solution via **ansible-playbook**, **docker-compose**, **bash script**, or manually.
 
 ### Contents
-* [How pfelk works?](https://github.com/3ilson/pfelk#how-pfelk-works)
-* [Installation](https://github.com/3ilson/pfelk#installation)
-  * [ansible](https://github.com/3ilson/pfelk#ansible-playbook)
-  * [docker](https://github.com/3ilson/pfelk#docker-compose)
-  * [manual installation/script](https://github.com/3ilson/pfelk#manual-installationscript---preferred-manual-method)
-* [Roadmap](https://github.com/3ilson/pfelk#roadmap)
-* [Comparison to similar solutions](https://github.com/3ilson/pfelk#comparison-to-similar-solutions)
-* [Contributing](https://github.com/3ilson/pfelk#contributing)
-* [License](https://github.com/3ilson/pfelk#license)
+* [How pfelk works?](https://github.com/klausagnoletti/pfelk#how-pfelk-works)
+* [Installation](https://github.com/klausagnoletti/pfelk#installation)
+  * [ansible](https://github.com/klausagnoletti/pfelk#ansible-playbook)
+  * [docker](https://github.com/klausagnoletti/pfelk#docker-compose)
+  * [manual installation/script](https://github.com/klausagnoletti/pfelk#manual-installationscript---preferred-manual-method)
+* [Roadmap](https://github.com/klausagnoletti/pfelk#roadmap)
+* [Comparison to similar solutions](https://github.com/klausagnoletti/pfelk#comparison-to-similar-solutions)
+* [Contributing](https://github.com/klausagnoletti/pfelk#contributing)
+* [License](https://github.com/klausagnoletti/pfelk#license)
 
 ### How pfelk works?
-![How pfelk works](https://github.com/3ilson/pfelk/raw/master/Images/pfELKOverview.PNG)
+![How pfelk works](https://github.com/klausagnoletti/pfelk/raw/master/Images/pfELKOverview.PNG)
 ### Quick start
 
+(Note: I don't use these so I have't forked. These links points upstream instead)
 ### Installation
 #### ansible-playbook
  * Clone the [ansible-pfelk](https://github.com/3ilson/ansible-pfelk) repository
@@ -69,25 +70,25 @@ Supported entries include:
  * `$ docker-compose up`
 
 #### manual installation/script - preferred manual method
-* Download installer script from [pfelk](https://raw.githubusercontent.com/3ilson/pfelk/master/pfelk-install-6.0.sh) repository
+* Download installer script from [pfelk](https://raw.githubusercontent.com/klausagnoletti/pfelk/master/pfelk-install-6.0.sh) repository
 ##### Ubuntu
-* `$ sudo wget https://raw.githubusercontent.com/3ilson/pfelk/master/pfelk-install-6.0.sh`
+* `$ sudo wget https://raw.githubusercontent.com/klausagnoletti/pfelk/master/pfelk-install-6.0.sh`
 * Make script executable 
 * `$ sudo chmod +x pfelk-install-6.0.sh`
 * Run installer script 
 * `$ sudo ./pfelk-install-6.0.sh`
-* Finish Configuring [here](https://github.com/3ilson/pfelk/blob/master/install/configuration.md)
+* Finish Configuring [here](https://github.com/klausagnoletti/pfelk/blob/master/install/configuration.md)
 ##### Debian
-* `$ wget https://raw.githubusercontent.com/3ilson/pfelk/master/pfelk-install-6.0.sh`
+* `$ wget https://raw.githubusercontent.com/klausagnoletti/pfelk/master/pfelk-install-6.0.sh`
 * Make script executable 
 * `$ chmod +x pfelk-install-6.0.sh`
 * Run installer script 
 * `$ ./pfelk-install-6.0.sh`
-* Finish Configuring [here](https://github.com/3ilson/pfelk/blob/master/install/configuration.md)
+* Finish Configuring [here](https://github.com/klausagnoletti/pfelk/blob/master/install/configuration.md)
 
 #### manual installation
-* [Ubuntu 18.04 / 20.04](https://github.com/3ilson/pfelk/blob/master/install/ubuntu.md)
-* [Debian 9-10.5](https://github.com/3ilson/pfelk/blob/master/install/debian.md)
+* [Ubuntu 18.04 / 20.04](https://github.com/klausagnoletti/pfelk/blob/master/install/ubuntu.md)
+* [Debian 9-10.5](https://github.com/klausagnoletti/pfelk/blob/master/install/debian.md)
 
 ### Roadmap
 This is the experimental public roadmap for the pfelk project.
@@ -98,7 +99,7 @@ This is the experimental public roadmap for the pfelk project.
 [Comparisions »](https://github.com/3ilson/pfelk/wiki/Comparison)
 
 ### Contributing
-Please reference to the [CONTRIBUTING file](https://github.com/3ilson/pfelk/blob/master/CONTRIBUTING.md). Collectively we can enhance and improve this product. Issues, feature requests, PRs, and documentation contributions are encouraged and welcomed!
+Please reference to the [CONTRIBUTING file](https://github.com/klausagnoletti/pfelk/blob/master/CONTRIBUTING.md). Collectively we can enhance and improve this product. Issues, feature requests, PRs, and documentation contributions are encouraged and welcomed!
 
 ### License
-This project is licensed under the terms of the Apache 2.0 open source license. Please refer to [LICENSE](https://github.com/3ilson/pfelk/blob/master/license) for the full terms.
+This project is licensed under the terms of the Apache 2.0 open source license. Please refer to [LICENSE](https://github.com/klausagnoletti/pfelk/blob/master/license) for the full terms.
