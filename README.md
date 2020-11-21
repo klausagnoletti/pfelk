@@ -2,6 +2,9 @@
 
 ![pfelk dashboard](https://raw.githubusercontent.com/3ilson/pfelk/master/Images/dashboard-v6.0.gif)
 
+
+This is a fork of https://github.com/3ilson/pfelk to enable support for GeoIP via docker (https://github.com/tkrs/maxmind-geoipupdate) and Elastic via https://github.com/sherifabdlnaby/elastdocker
+
 You can view installation guide guide on [3ilson YouTube Channel](https://www.youtube.com/3ilson).
 
 
